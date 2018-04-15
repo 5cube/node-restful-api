@@ -29,20 +29,21 @@ router.get('/', (req, res, next) => {
               info: doc.info,
               totalAmount: doc.totalAmount,
               items: doc.items.map(item => {
+                const product = item.product || {}
                 return {
                   quantity: item.quantity,
                   amount: item.amount,
                   product: {
-                    id: item.product._id,
-                    createdAt: item.createdAt,
-                    updatedAt: item.updatedAt,
-                    name: item.product.name,
-                    price: item.product.price,
-                    info: item.product.info,
-                    subtitle: item.product.subtitle,
-                    units: item.product.units,
-                    images: item.product.images,
-                    inventory: item.product.inventory
+                    id: product._id,
+                    createdAt: product.createdAt,
+                    updatedAt: product.updatedAt,
+                    name: product.name,
+                    price: product.price,
+                    info: product.info,
+                    subtitle: product.subtitle,
+                    units: product.units,
+                    images: product.images,
+                    inventory: product.inventory
                   }
                 }
               })
@@ -135,20 +136,21 @@ router.get('/:id', (req, res, next) => {
           info: doc.info,
           totalAmount: doc.totalAmount,
           items: doc.items.map(item => {
+            const product = item.product || {}
             return {
               quantity: item.quantity,
               amount: item.amount,
               product: {
-                id: item.product._id,
-                createdAt: item.product.createdAt,
-                updatedAt: item.product.updatedAt,
-                name: item.product.name,
-                price: item.product.price,
-                info: item.product.info,
-                subtitle: item.product.subtitle,
-                units: item.product.units,
-                images: item.product.images,
-                inventory: item.product.inventory
+                id: product._id,
+                createdAt: product.createdAt,
+                updatedAt: product.updatedAt,
+                name: product.name,
+                price: product.price,
+                info: product.info,
+                subtitle: product.subtitle,
+                units: product.units,
+                images: product.images,
+                inventory: product.inventory
               }
             }
           })
